@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Plants · Home</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<style>
+  body {
+    background: radial-gradient(ellipse at top, #064E3B 0%, #022C22 60%, #001A12 100%);
+    background-attachment: fixed;
+    color: #ECFDF5;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+  }
+  .font-display { font-family: 'Fraunces', serif; letter-spacing: -0.025em; }
+  .glass {
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .glass-bar {
+    background: rgba(2, 44, 34, 0.78);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .glass-light {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .shadow-soft { box-shadow: 0 12px 40px -12px rgba(0,0,0,0.35), 0 4px 12px -4px rgba(0,0,0,0.20); }
+  .shadow-lift { box-shadow: 0 28px 64px -16px rgba(0,0,0,0.55), 0 10px 24px -8px rgba(0,0,0,0.35); }
+  .glow-emerald { box-shadow: 0 8px 32px -8px rgba(16,185,129,0.55); }
+  .card-interactive { transition: transform 250ms cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 250ms ease-out; }
+  .card-interactive:hover { transform: translateY(-6px); }
+  .leaf-bg {
+    background-image: radial-gradient(circle at 25% 25%, rgba(110,231,183,0.18) 0%, transparent 40%),
+                      radial-gradient(circle at 75% 75%, rgba(190,242,100,0.14) 0%, transparent 40%);
+  }
+</style>
+</head>
+<body class="pb-28 md:pb-0">
+
+<!-- DESKTOP TOP NAV -->
+<header class="hidden glass-bar sticky top-0 z-10 md:block">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg class="h-7 w-7 text-emerald-300" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+      <span class="font-display text-xl font-semibold text-white">PlantCare</span>
+    </a>
+    <nav class="flex items-center gap-1">
+      <a class="rounded-xl bg-white/10 px-4 py-2 text-sm font-semibold text-emerald-300">Home</a>
+      <a class="rounded-xl px-4 py-2 text-sm font-medium text-emerald-100/70 hover:bg-white/5">Browse plants</a>
+      <a class="rounded-xl px-4 py-2 text-sm font-medium text-emerald-100/70 hover:bg-white/5">Profile</a>
+    </nav>
+    <button class="flex items-center gap-2 rounded-2xl bg-emerald-300 px-5 py-2.5 text-sm font-bold text-emerald-950 glow-emerald hover:bg-emerald-200">
+      <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+      Add plant
+    </button>
+  </div>
+</header>
+
+<!-- MOBILE HEADER -->
+<header class="glass-bar sticky top-0 z-10 md:hidden">
+  <div class="px-4 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2">
+      <svg class="h-6 w-6 text-emerald-300" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+      <span class="font-display text-lg font-semibold text-white">PlantCare</span>
+    </a>
+    <button class="rounded-xl p-2 text-emerald-200 hover:bg-white/5 relative">
+      <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+      <span class="absolute top-1 right-1 h-2 w-2 rounded-full bg-rose-400"></span>
+    </button>
+  </div>
+</header>
+
+<main class="mx-auto max-w-6xl px-4 py-6 sm:px-6 md:py-10">
+
+  <!-- HERO GREETING -->
+  <section class="mb-8">
+    <p class="text-xs uppercase tracking-[0.25em] text-emerald-300/80">Good morning</p>
+    <h1 class="font-display mt-2 text-4xl font-semibold tracking-tight text-white sm:text-5xl md:text-6xl">Dipanjan,</h1>
+    <h2 class="font-display text-4xl font-semibold tracking-tight text-emerald-300 sm:text-5xl md:text-6xl">your forest awaits.</h2>
+    <p class="mt-3 text-sm text-emerald-100/70 max-w-md">4 of 6 plants are thriving today. One needs your attention.</p>
+  </section>
+
+  <!-- SUMMARY STRIP -->
+  <section class="mb-6 grid grid-cols-3 gap-3 sm:gap-4">
+    <div class="glass rounded-3xl p-4 sm:p-5">
+      <p class="text-[10px] uppercase tracking-widest text-emerald-300/70">Avg score</p>
+      <p class="font-display mt-2 text-3xl font-semibold text-white sm:text-4xl">7.8</p>
+      <p class="mt-1 text-[11px] text-emerald-300">↑ 0.4 this week</p>
+    </div>
+    <div class="glass rounded-3xl p-4 sm:p-5">
+      <p class="text-[10px] uppercase tracking-widest text-emerald-300/70">Plants</p>
+      <p class="font-display mt-2 text-3xl font-semibold text-white sm:text-4xl">6</p>
+      <p class="mt-1 text-[11px] text-emerald-100/60">in 3 rooms</p>
+    </div>
+    <div class="glass rounded-3xl p-4 sm:p-5">
+      <p class="text-[10px] uppercase tracking-widest text-rose-300/80">Attention</p>
+      <p class="font-display mt-2 text-3xl font-semibold text-rose-300 sm:text-4xl">2</p>
+      <p class="mt-1 text-[11px] text-rose-200/70">below 5.0</p>
+    </div>
+  </section>
+
+  <!-- ATTENTION CALLOUT -->
+  <section class="mb-8 glass rounded-3xl p-5 sm:p-6 border border-rose-400/30">
+    <div class="flex items-start gap-3">
+      <div class="grid h-11 w-11 shrink-0 place-items-center rounded-2xl bg-rose-400/20">
+        <svg class="h-5 w-5 text-rose-300" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+      </div>
+      <div class="flex-1">
+        <p class="text-[10px] uppercase tracking-widest text-rose-300/80">Needs you now</p>
+        <p class="mt-1 text-base font-semibold text-white">Your Fiddle Leaf Fig in the hallway is struggling.</p>
+        <p class="mt-1 text-sm text-emerald-100/70">Light is far below his comfort range. Try moving closer to your east window.</p>
+      </div>
+      <button class="shrink-0 rounded-xl bg-rose-300 px-3 py-2 text-xs font-bold text-rose-950 hover:bg-rose-200">Fix it</button>
+    </div>
+  </section>
+
+  <!-- FILTERS + SECTION HEADER -->
+  <section class="mb-4 flex items-baseline justify-between">
+    <h2 class="font-display text-2xl font-semibold text-white sm:text-3xl">Your plants</h2>
+    <p class="text-xs text-emerald-200/60">Showing 6</p>
+  </section>
+
+  <section class="mb-5 flex items-center gap-2 overflow-x-auto pb-1">
+    <button class="shrink-0 rounded-full bg-emerald-300 px-4 py-1.5 text-xs font-bold text-emerald-950">All · 6</button>
+    <button class="shrink-0 rounded-full glass px-4 py-1.5 text-xs font-medium text-emerald-100 hover:bg-white/10">Living · 2</button>
+    <button class="shrink-0 rounded-full glass px-4 py-1.5 text-xs font-medium text-emerald-100 hover:bg-white/10">Bedroom · 2</button>
+    <button class="shrink-0 rounded-full glass px-4 py-1.5 text-xs font-medium text-emerald-100 hover:bg-white/10">Hallway · 1</button>
+    <button class="shrink-0 rounded-full glass px-4 py-1.5 text-xs font-medium text-emerald-100 hover:bg-white/10">Balcony · 1</button>
+  </section>
+
+  <!-- PLANTS GRID -->
+  <section class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4 sm:gap-4">
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-emerald-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-emerald-500 px-2.5 text-xs font-bold text-white shadow-md">9.2</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">Snake Plant</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Living room</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-emerald-700">Thriving</p>
+      </div>
+    </a>
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-emerald-50 to-emerald-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-emerald-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-emerald-500 px-2.5 text-xs font-bold text-white shadow-md">8.7</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">ZZ Plant</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Living room</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-emerald-700">Thriving</p>
+      </div>
+    </a>
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-lime-50 to-lime-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-lime-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-lime-600 px-2.5 text-xs font-bold text-white shadow-md">7.5</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">Peace Lily</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Bedroom</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-lime-700">Healthy</p>
+      </div>
+    </a>
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-lime-50 to-lime-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-lime-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-lime-600 px-2.5 text-xs font-bold text-white shadow-md">7.1</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">Money Plant</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Bedroom</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-lime-700">Healthy</p>
+      </div>
+    </a>
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-amber-50 to-amber-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-amber-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-amber-500 px-2.5 text-xs font-bold text-white shadow-md">5.8</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">Calathea</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Balcony</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-amber-700">Stressed</p>
+      </div>
+    </a>
+
+    <a href="06_placement_detail.html" class="group overflow-hidden rounded-3xl bg-white shadow-soft card-interactive hover:shadow-lift cursor-pointer">
+      <div class="relative h-36 leaf-bg bg-gradient-to-br from-rose-50 to-rose-100 flex items-center justify-center">
+        <svg class="h-16 w-16 text-rose-700/30" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66.95-2.3c.48.17.98.3 1.34.3C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        <span class="absolute top-2.5 right-2.5 inline-flex h-7 items-center rounded-full bg-rose-500 px-2.5 text-xs font-bold text-white shadow-md">3.4</span>
+      </div>
+      <div class="p-4">
+        <p class="font-display text-base font-semibold text-stone-900 line-clamp-1">Fiddle Leaf Fig</p>
+        <p class="mt-0.5 text-xs text-stone-500 line-clamp-1">Hallway</p>
+        <p class="mt-2 text-[10px] uppercase tracking-widest font-semibold text-rose-700">Critical</p>
+      </div>
+    </a>
+
+  </section>
+
+</main>
+
+<!-- MOBILE FLOATING BOTTOM TAB BAR -->
+<nav class="fixed bottom-3 left-4 right-4 grid grid-cols-4 rounded-2xl bg-emerald-950/85 backdrop-blur-xl border border-white/10 shadow-soft md:hidden">
+  <a class="flex flex-col items-center gap-0.5 py-1.5 text-emerald-300">
+    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+    <span class="text-[10px] font-semibold uppercase tracking-wider leading-none">Home</span>
+  </a>
+  <a class="flex flex-col items-center gap-0.5 py-1.5 text-emerald-100/40">
+    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+    <span class="text-[10px] font-medium uppercase tracking-wider leading-none">Browse</span>
+  </a>
+  <a class="flex flex-col items-center gap-0.5 py-1.5 text-emerald-100/40">
+    <div class="-mt-5 grid h-11 w-11 place-items-center rounded-xl bg-emerald-300 glow-emerald">
+      <svg class="h-5 w-5 text-emerald-950" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+    </div>
+    <span class="text-[10px] font-semibold uppercase tracking-wider leading-none">Add</span>
+  </a>
+  <a class="flex flex-col items-center gap-0.5 py-1.5 text-emerald-100/40">
+    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+    <span class="text-[10px] font-medium uppercase tracking-wider leading-none">Profile</span>
+  </a>
+</nav>
+
+</body>
+</html>
